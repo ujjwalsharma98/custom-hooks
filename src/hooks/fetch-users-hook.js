@@ -4,14 +4,22 @@ import axios from 'axios';
 export const FetchUsersHook = () => {
 
     const [usersList, setUsersList] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         (async () => {
-            const response = await axios.get('https://jsonplaceholder.typicode.com/users')
-            setUsersList(response.data)
+            setLoading(true)
+            try {
+                const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+                setUsersList(response.data)
+                setLoading(false)
+            } catch (error){
+                setError(error)
+                setLoading(false)
+            }
         })();
     }, [])
 
-
-    return usersList  
+    return [usersList, loading, error]
 }
