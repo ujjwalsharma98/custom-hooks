@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
-export const FetchUsersHook = () => {
+export const FetchUsersHook = (resourceUrl) => {
 
-    const [usersList, setUsersList] = useState([])
+    const [list, setUsersList] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
 
@@ -11,7 +11,7 @@ export const FetchUsersHook = () => {
         (async () => {
             setLoading(true)
             try {
-                const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+                const response = await axios.get(resourceUrl)
                 setUsersList(response.data)
                 setLoading(false)
             } catch (error){
@@ -19,7 +19,7 @@ export const FetchUsersHook = () => {
                 setLoading(false)
             }
         })();
-    }, [])
+    }, [resourceUrl])
 
-    return [usersList, loading, error]
+    return [list, loading, error]
 }

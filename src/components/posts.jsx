@@ -1,8 +1,8 @@
 import { FetchUsersHook } from '../hooks/fetch-users-hook'
 
-const Users = () => {
+const Posts = () => {
 
-    const [list, loading, error] = FetchUsersHook('https://jsonplaceholder.typicode.com/users')
+    const [list, loading, error] = FetchUsersHook('https://jsonplaceholder.typicode.com/posts')
 
     if (loading) {
         return (<div>Loading...</div>)
@@ -15,12 +15,11 @@ const Users = () => {
     return (
         <>
         {list.map(user => (<div key={user.id}>
-            <div>Name: {user.name}</div>
-            <div>Email: {user.email}</div>
+            <div>Title: {user.title}</div>
             <br/>
         </div>))}
         </>
     )
 }
 
-export default Users;
+export default Posts;
