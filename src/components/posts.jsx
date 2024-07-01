@@ -1,8 +1,8 @@
-import { FetchUsersHook } from '../hooks/fetch-users-hook'
+import { useFetch } from '../hooks/useFetch'
 
 const Posts = () => {
 
-    const [list, loading, error] = FetchUsersHook('https://jsonplaceholder.typicode.com/posts')
+    const [list, loading, error] = useFetch('https://jsonplaceholder.typicode.com/posts')
 
     if (loading) {
         return (<div>Loading...</div>)

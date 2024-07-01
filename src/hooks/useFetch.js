@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
-export const FetchUsersHook = (resourceUrl) => {
+export const useFetch = (resourceUrl) => {
 
     const [list, setUsersList] = useState([])
     const [loading, setLoading] = useState(false)
