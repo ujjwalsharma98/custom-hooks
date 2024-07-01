@@ -1,6 +1,7 @@
 import Users from './components/users';
 import Posts from './components/posts';
 import Toggle from './components/toggle';
+import Debounce from './components/debounce';
 
 function App() {
 
@@ -8,7 +9,8 @@ function App() {
     <>
       {/* <Users />
       <Posts /> */}
-      <Toggle />
+      {/* <Toggle /> */}
+      <Debounce/>
     </>
   )
 }
